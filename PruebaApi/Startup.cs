@@ -32,6 +32,8 @@ namespace PruebaApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PruebaApi", Version = "v1" });
             });
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
+                       Configuration.GetConnectionString("MiguelAngelContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
